@@ -1,0 +1,24 @@
+RewriteEngine On
+
+
+#----------------------------------------------
+# | this code use for remove public directory |
+#----------------------------------------------
+
+
+RewriteCond %{REQUEST_FILENAME} !-d
+RewriteRule ^(.*)/$ /$1 [L,R=301]
+RewriteCond %{REQUEST_URI} !(\.ico|\.css|\.js|\.png|\.jpg|\.pdf|\.mpeg|\.mov|\.jpeg|\.gif|robots\.txt|\.eot|\.svg|\.ttf|\.woff|\.woff2|\.otf|\.pdf)$ [NC]
+RewriteCond %{REQUEST_FILENAME} !-d
+RewriteCond %{REQUEST_FILENAME} !-f
+RewriteRule ^ index.php [L]
+RewriteCond %{REQUEST_FILENAME} !-d
+RewriteCond %{REQUEST_FILENAME} !-f
+RewriteCond %{REQUEST_URI} !^/public/
+RewriteRule ^(login|uploads|theme|vendor|assets|css|js|images|ca|favicons|fonts|)/(.*)$ public/$1/$2 [L,NC]
+
+
+RewriteCond %{HTTP:Authorization} ^(.*)
+RewriteRule .* - [e=HTTP_AUTHORIZATION:%1]
+
+

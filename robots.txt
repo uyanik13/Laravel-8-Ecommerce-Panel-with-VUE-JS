@@ -1,0 +1,20 @@
+sitemap: https://www.dijitalreklam.org/sitemap
+
+User-agent: *
+
+Disallow: /cgi-bin/
+Disallow: /panel/login
+Disallow: /*.php$
+
+
+User-agent: Mediapartners-Google*
+Allow: /
+User-agent: Googlebot-Image
+Allow: /
+
+
+User-agent: Adsbot-Google
+Allow: /
+
+User-agent: Googlebot-Mobile
+User-agent: Yandex
