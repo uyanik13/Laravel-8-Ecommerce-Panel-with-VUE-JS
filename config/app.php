@@ -173,7 +173,6 @@ return [
         Tymon\JWTAuth\Providers\LaravelServiceProvider::class,
         DRO\SweetAlert\SweetAlertServiceProvider::class,
         Intervention\Image\ImageServiceProvider::class,
-        DRO\SeoAnalyzer\SeoServiceProvider::class,
         /*
          * Application Service Providers...
          */

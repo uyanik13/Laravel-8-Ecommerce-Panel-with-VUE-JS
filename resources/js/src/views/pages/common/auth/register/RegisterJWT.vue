@@ -3,7 +3,7 @@ File Name: RegisterJWT.vue
 Description: Register Page for JWT
 ----------------------------------------------------------------------------------------
 Item Name: Vuexy - Vuejs, HTML & Laravel Admin Dashboard Template
-  
+
 Author URL: https://www.dijitalreklam.org
 ========================================================================================== -->
 
@@ -16,8 +16,11 @@ Author URL: https://www.dijitalreklam.org
       :label-placeholder="$t('NameAndSurname')"
       name="name"
       v-model="name"
-      class="w-full" />
-    <span class="text-danger text-sm">{{ errors.first('name')? $t('NameRequried') : '' }}</span>
+      class="w-full"
+    />
+    <span class="text-danger text-sm">{{
+      errors.first("name") ? $t("NameRequried") : ""
+    }}</span>
 
     <vs-input
       v-validate="'required|email'"
@@ -26,9 +29,11 @@ Author URL: https://www.dijitalreklam.org
       type="email"
       :label-placeholder="$t('Email')"
       v-model="email"
-      class="w-full mt-6" />
-    <span class="text-danger text-sm">{{ errors.first('email')? $t('EmailRequried') : '' }}</span>
-
+      class="w-full mt-6"
+    />
+    <span class="text-danger text-sm">{{
+      errors.first("email") ? $t("EmailRequried") : ""
+    }}</span>
 
     <!--<vs-input
       v-validate="'required|min:10|max:12'"
@@ -41,8 +46,6 @@ Author URL: https://www.dijitalreklam.org
       class="w-full mt-6" />
     <span class="text-danger text-sm">{{ errors.first('phone') ? 'Telefon No Gerekli' : ''}}</span>-->
 
-
-
     <vs-input
       ref="password"
       type="password"
@@ -51,8 +54,11 @@ Author URL: https://www.dijitalreklam.org
       name="password"
       :label-placeholder="$t('Password')"
       v-model="password"
-      class="w-full mt-6" />
-    <span class="text-danger text-sm">{{ errors.first('password') ? $t('PasswordRequired') : ''}}</span>
+      class="w-full mt-6"
+    />
+    <span class="text-danger text-sm">{{
+      errors.first("password") ? $t("PasswordRequired") : ""
+    }}</span>
 
     <vs-input
       type="password"
@@ -62,37 +68,56 @@ Author URL: https://www.dijitalreklam.org
       name="confirm_password"
       :label-placeholder="$t('PasswordConfirm')"
       v-model="confirm_password"
-      class="w-full mt-6" />
-    <span class="text-danger text-sm">{{ errors.first('confirm_password') ? $t('PasswordConfirmRequired') : ''}}</span>
+      class="w-full mt-6"
+    />
+    <span class="text-danger text-sm">{{
+      errors.first("confirm_password") ? $t("PasswordConfirmRequired") : ""
+    }}</span>
 
-    <vs-checkbox v-model="isTermsConditionAccepted" class="mt-6">{{$t('TermsAndConditions')}}</vs-checkbox>
-    <vs-button  type="border"  @click="loginUser()" class="mt-6">{{$t('login')}}</vs-button>
-    <vs-button class="float-right mt-6" @click="register" :disabled="!validateForm">{{$t('Register')}}</vs-button>
+    <vs-checkbox v-model="isTermsConditionAccepted" class="mt-6">{{
+      $t("TermsAndConditions")
+    }}</vs-checkbox>
+    <vs-button type="border" @click="loginUser()" class="mt-6">{{
+      $t("login")
+    }}</vs-button>
+    <vs-button
+      class="float-right mt-6"
+      @click="register"
+      :disabled="!validateForm"
+      >{{ $t("Register") }}</vs-button
+    >
   </div>
 </template>
 
 <script>
-import i18n from '@/i18n/i18n'
-
+import i18n from "@/i18n/i18n";
+import Cookies from "js-cookie";
 export default {
-  created () {
-    this.checkAuth()
+  created() {
+    this.checkAuth();
   },
-  data () {
+  data() {
     return {
-      name: '',
-      email: '',
-      phone: '',
-      type: '',
-      password: '',
-      confirm_password: '',
-      isTermsConditionAccepted: true
-    }
+      name: "",
+      email: "",
+      phone: "",
+      type: "",
+      password: "",
+      confirm_password: "",
+      isTermsConditionAccepted: true,
+    };
   },
   computed: {
-    validateForm () {
-      return !this.errors.any() && this.name != '' && this.email != ''   && this.password != '' && this.confirm_password != '' && this.isTermsConditionAccepted === true
-    }
+    validateForm() {
+      return (
+        !this.errors.any() &&
+        this.name != "" &&
+        this.email != "" &&
+        this.password != "" &&
+        this.confirm_password != "" &&
+        this.isTermsConditionAccepted === true
+      );
+    },
   },
   methods: {
     // checkLogin () {
@@ -104,52 +129,62 @@ export default {
     //   }
     //   return true
     // },
-    register () {
-      if (!this.validateForm) return
-      this.$vs.loading()
+    register() {
+      if (!this.validateForm) return;
+      this.$vs.loading();
       const payload = {
-          name: this.name,
-          phone:this.phone,
-          email: this.email,
-          password: this.password,
-          confirm_password: this.confirm_password
-      }
-      this.$store.dispatch('auth/register', payload)
+        name: this.name,
+        phone: this.phone,
+        email: this.email,
+        password: this.password,
+        confirm_password: this.confirm_password,
+      };
+      this.$store
+        .dispatch("auth/register", payload)
         .then((response) => {
-          this.$vs.loading.close()
-          this.showAlert(i18n.t('Success'), i18n.t('yourAccountCreated'), 'icon-success', 'success')
-          this.$router.push({ name: 'login'})
+          this.$vs.loading.close();
+          this.showAlert(
+            i18n.t("Success"),
+            i18n.t("yourAccountCreated"),
+            "icon-success",
+            "success"
+          );
+          this.$router.push({ name: "login" });
         })
-        .catch(error => {
-          this.$vs.loading.close()
-           this.showAlert(i18n.t('Error'), i18n.t('you_should_use_unique_email_address'), 'icon-alert-circle', 'warning')
-        })
+        .catch((error) => {
+          this.$vs.loading.close();
+          this.showAlert(
+            i18n.t("Error"),
+            i18n.t("you_should_use_unique_email_address"),
+            "icon-alert-circle",
+            "warning"
+          );
+        });
     },
-    loginUser () {
-      this.$router.push({ name: 'login'}).catch(() => {})
+    loginUser() {
+      this.$router.push({ name: "login" }).catch(() => {});
     },
-       checkAuth () {
-        const user = Cookies.get('user') ? JSON.parse(Cookies.get('user')) : null
-           if(user){
-         if (user.role === 'user') {
-            //this.showAlert(i18n.t('Error'), i18n.t('you_are_logged_in'), 'icon-alert-circle', 'warning')
-            return this.$router.push({ name: 'user.dashboard'})
-            } else if (user.role === 'admin') {
-            //this.showAlert(i18n.t('Error'), i18n.t('you_are_logged_in'), 'icon-alert-circle', 'warning')
-            return this.$router.push({ name: 'admin.dashboard'})
-            }
-           }
-
+    checkAuth() {
+      const user = Cookies.get("user") ? JSON.parse(Cookies.get("user")) : null;
+      if (user) {
+        if (user.role === "user") {
+          //this.showAlert(i18n.t('Error'), i18n.t('you_are_logged_in'), 'icon-alert-circle', 'warning')
+          return this.$router.push({ name: "user.dashboard" });
+        } else if (user.role === "admin") {
+          //this.showAlert(i18n.t('Error'), i18n.t('you_are_logged_in'), 'icon-alert-circle', 'warning')
+          return this.$router.push({ name: "admin.dashboard" });
+        }
+      }
     },
-    showAlert (title, text, icon, color) {
+    showAlert(title, text, icon, color) {
       this.$vs.notify({
         title,
         text,
-        iconPack: 'feather',
+        iconPack: "feather",
         icon,
-        color
-      })
+        color,
+      });
     },
-  }
-}
+  },
+};
 </script>
