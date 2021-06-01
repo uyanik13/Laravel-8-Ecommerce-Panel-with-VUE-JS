@@ -3,13 +3,12 @@
   Description: User Edit Information Tab content
   ----------------------------------------------------------------------------------------
 
-  
-  Author URL: https://www.dijitalreklam.org
+
+  Author URL: https://github.com/uyanik13
 ========================================================================================== -->
 
 <template>
   <div id="user-edit-tab-info">
-
     <!-- Avatar Row -->
     <div class="vx-row">
       <div class="vx-col w-full">
@@ -17,12 +16,23 @@
           <img :src="data_local.avatar" class="mr-8 rounded h-24 w-24" />
           <!-- <vs-avatar :src="data.avatar" size="80px" class="mr-4" /> -->
           <div>
-            <p class="text-lg font-medium mb-2 mt-4 sm:mt-0">{{ data.name  }}</p>
-            <input type="file" class="hidden" ref="updateImgInput" @change="update_avatar" accept="image/*">
-            <vs-button class="mr-4 sm:mb-0 mb-2" @click="$refs.updateImgInput.click()">{{$t('change_avatar')}}</vs-button>
+            <p class="text-lg font-medium mb-2 mt-4 sm:mt-0">{{ data.name }}</p>
+            <input
+              type="file"
+              class="hidden"
+              ref="updateImgInput"
+              @change="update_avatar"
+              accept="image/*"
+            />
+            <vs-button
+              class="mr-4 sm:mb-0 mb-2"
+              @click="$refs.updateImgInput.click()"
+              >{{ $t("change_avatar") }}</vs-button
+            >
 
-
-            <vs-button type="border" color="danger">{{$t('remove_avatar')}}</vs-button>
+            <vs-button type="border" color="danger">{{
+              $t("remove_avatar")
+            }}</vs-button>
           </div>
         </div>
       </div>
@@ -31,37 +41,83 @@
     <!-- Content Row -->
     <div class="vx-row">
       <div class="vx-col md:w-1/2 w-full">
-        <vs-input class="w-full mt-4" :label="$t('name')" v-model="data.name" v-validate="'required|alpha_spaces'" name="name" />
-        <span class="text-danger text-sm"  v-show="errors.has('name')">{{ errors.first('name') }}</span>
+        <vs-input
+          class="w-full mt-4"
+          :label="$t('name')"
+          v-model="data.name"
+          v-validate="'required|alpha_spaces'"
+          name="name"
+        />
+        <span class="text-danger text-sm" v-show="errors.has('name')">{{
+          errors.first("name")
+        }}</span>
 
-        <vs-input class="w-full mt-4" :label="$t('email')" v-model="data.email" type="email" v-validate="'required|email'" name="email" />
-        <span class="text-danger text-sm"  v-show="errors.has('email')">{{ errors.first('email') }}</span>
-        <vs-input class="w-full mt-4" :label="$t('Phone')" v-model="data.phone" v-validate="{regex: '^\\+?([0-9]+)$' }" name="phone" />
-        <span class="text-danger text-sm"  v-show="errors.has('phone')">{{ errors.first('phone') }}</span>
-
+        <vs-input
+          class="w-full mt-4"
+          :label="$t('email')"
+          v-model="data.email"
+          type="email"
+          v-validate="'required|email'"
+          name="email"
+        />
+        <span class="text-danger text-sm" v-show="errors.has('email')">{{
+          errors.first("email")
+        }}</span>
+        <vs-input
+          class="w-full mt-4"
+          :label="$t('Phone')"
+          v-model="data.phone"
+          v-validate="{ regex: '^\\+?([0-9]+)$' }"
+          name="phone"
+        />
+        <span class="text-danger text-sm" v-show="errors.has('phone')">{{
+          errors.first("phone")
+        }}</span>
       </div>
 
       <div class="vx-col md:w-1/2 w-full">
-
         <div class="mt-4">
-          <label class="vs-input--label">{{$t('Status')}}</label>
-          <v-select v-model="status_local" :clearable="false" :options="statusOptions" v-validate="'required'"  :dir="$vs.rtl ? 'rtl' : 'ltr'" />
-          <span class="text-danger text-sm"  v-show="errors.has('status')">{{ errors.first('status') }}</span>
+          <label class="vs-input--label">{{ $t("Status") }}</label>
+          <v-select
+            v-model="status_local"
+            :clearable="false"
+            :options="statusOptions"
+            v-validate="'required'"
+            :dir="$vs.rtl ? 'rtl' : 'ltr'"
+          />
+          <span class="text-danger text-sm" v-show="errors.has('status')">{{
+            errors.first("status")
+          }}</span>
         </div>
 
         <div class="mt-4">
-          <label class="vs-input--label">{{$t('Role')}}</label>
-          <v-select  v-model="role_local" :clearable="false" :options="roleOptions" v-validate="'required'"  :dir="$vs.rtl ? 'rtl' : 'ltr'" />
-          <span class="text-danger text-sm"  v-show="errors.has('role')">{{ errors.first('role') }}</span>
+          <label class="vs-input--label">{{ $t("Role") }}</label>
+          <v-select
+            v-model="role_local"
+            :clearable="false"
+            :options="roleOptions"
+            v-validate="'required'"
+            :dir="$vs.rtl ? 'rtl' : 'ltr'"
+          />
+          <span class="text-danger text-sm" v-show="errors.has('role')">{{
+            errors.first("role")
+          }}</span>
         </div>
 
-        <vs-input class="w-full mt-4" :label="$t('Address')"  v-model="data.address" v-validate="'alpha_spaces'" name="address" />
-        <span class="text-danger text-sm"  v-show="errors.has('address')">{{ errors.first('address') }}</span>
-
+        <vs-input
+          class="w-full mt-4"
+          :label="$t('Address')"
+          v-model="data.address"
+          v-validate="'alpha_spaces'"
+          name="address"
+        />
+        <span class="text-danger text-sm" v-show="errors.has('address')">{{
+          errors.first("address")
+        }}</span>
       </div>
     </div>
 
- <!--   &lt;!&ndash; Permissions &ndash;&gt;
+    <!--   &lt;!&ndash; Permissions &ndash;&gt;
     <vx-card class="mt-base" no-shadow card-border>
 
       <div class="vx-row">
@@ -100,7 +156,12 @@
     <div class="vx-row">
       <div class="vx-col w-full">
         <div class="mt-8 flex flex-wrap items-center justify-end">
-          <vs-button class="ml-auto mt-2" @click="save_changes" :disabled="!validateForm">{{$t('Save')}}</vs-button>
+          <vs-button
+            class="ml-auto mt-2"
+            @click="save_changes"
+            :disabled="!validateForm"
+            >{{ $t("Save") }}</vs-button
+          >
           <!--<vs-button class="ml-4 mt-2" type="border" color="warning" @click="reset_data">Reset</vs-button>-->
         </div>
       </div>
@@ -109,13 +170,11 @@
 </template>
 
 <script>
-import vSelect from 'vue-select'
-
+import vSelect from "vue-select";
 
 export default {
-
   components: {
-    vSelect
+    vSelect,
   },
   props: {
     data: {
@@ -125,47 +184,47 @@ export default {
   },
   data() {
     return {
-      avatar : null,
+      avatar: null,
       data_local: JSON.parse(JSON.stringify(this.data)),
 
       statusOptions: [
-        { label: "Active",  value: 1 },
-        { label: "Deactivated",  value: 0 },
+        { label: "Active", value: 1 },
+        { label: "Deactivated", value: 0 },
       ],
       roleOptions: [
-        { label: "Admin",  value: "admin" },
-        { label: "User",  value: "user" },
-        { label: "Staff",  value: "staff" },
+        { label: "Admin", value: "admin" },
+        { label: "User", value: "user" },
+        { label: "Staff", value: "staff" },
       ],
-    }
+    };
   },
   computed: {
     status_local: {
       get() {
-        return { label: this.data_local.status,  value: this.data_local.status  }
+        return { label: this.data_local.status, value: this.data_local.status };
       },
       set(obj) {
-        this.data_local.status = obj.value
-      }
+        this.data_local.status = obj.value;
+      },
     },
     role_local: {
       get() {
-        return { label: this.data_local.role,  value: this.data_local.role  }
+        return { label: this.data_local.role, value: this.data_local.role };
       },
       set(obj) {
-        this.data_local.role = obj.value
-      }
+        this.data_local.role = obj.value;
+      },
     },
     validateForm() {
-      return !this.errors.any()
-    }
+      return !this.errors.any();
+    },
   },
   methods: {
     // capitalize(str) {
     //   return str.slice(0,1).toUpperCase() + str.slice(1,str.length)
     // },
     save_changes() {
-      if(!this.validateForm) return
+      if (!this.validateForm) return;
       const payload = {
         id: this.data.id,
         name: this.data.name,
@@ -175,41 +234,42 @@ export default {
         phone: this.data.phone,
         status: this.status_local.value,
         role: this.role_local.value,
-
-      }
-      this.$store.dispatch('user/updateUser',payload).then((response) => {
-        this.$vs.notify({
-          title: 'Başarılı',
-          text: 'Değişiklikler Başarıyla Düzenlendi',
-          iconPack: 'feather',
-          icon: 'icon-success',
-          color: 'success'
+      };
+      this.$store
+        .dispatch("user/updateUser", payload)
+        .then((response) => {
+          this.$vs.notify({
+            title: "Başarılı",
+            text: "Değişiklikler Başarıyla Düzenlendi",
+            iconPack: "feather",
+            icon: "icon-success",
+            color: "success",
+          });
         })
-
-      }).catch(error => {
-        this.$vs.notify({
-          title: 'Hata',
-          text: 'Değişiklikler Kaydedilemedi.',
-          iconPack: 'feather',
-          icon: 'icon-alert-circle',
-          color: 'danger'
-        })
-      })
+        .catch((error) => {
+          this.$vs.notify({
+            title: "Hata",
+            text: "Değişiklikler Kaydedilemedi.",
+            iconPack: "feather",
+            icon: "icon-alert-circle",
+            color: "danger",
+          });
+        });
     },
 
     reset_data() {
-      this.data_local = JSON.parse(JSON.stringify(this.data))
+      this.data_local = JSON.parse(JSON.stringify(this.data));
     },
     update_avatar(input) {
       if (input.target.files && input.target.files[0]) {
-        var reader = new FileReader()
-        reader.onload = e => {
-          this.data_local.avatar = e.target.result
-          console.log('IMAGEURL',e.target.result)
-        }
-        reader.readAsDataURL(input.target.files[0])
+        var reader = new FileReader();
+        reader.onload = (e) => {
+          this.data_local.avatar = e.target.result;
+          console.log("IMAGEURL", e.target.result);
+        };
+        reader.readAsDataURL(input.target.files[0]);
       }
     },
   },
-}
+};
 </script>

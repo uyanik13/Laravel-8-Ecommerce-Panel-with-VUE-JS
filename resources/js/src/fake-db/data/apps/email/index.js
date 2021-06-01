@@ -44,7 +44,7 @@ const data = {
       id: 3,
       sender: 'hettiem@mail.com',
       sender_name: 'Hettie Mcerlean',
-      to: ['johndoe@mail.com', 'hello@pixinvent.net'],
+      to: ['johndoe@mail.com', 'hello@uyanik13.net'],
       img: require('@assets/images/portrait/small/avatar-s-3.jpg'),
       subject:  'Order Delivered',
       cc: [],

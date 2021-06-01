@@ -3,8 +3,8 @@
   Description: Calendar Module State
   ----------------------------------------------------------------------------------------
 
-  
-  Author URL: https://www.dijitalreklam.org
+
+  Author URL: https://github.com/uyanik13
 ==========================================================================================*/
 
 export default {

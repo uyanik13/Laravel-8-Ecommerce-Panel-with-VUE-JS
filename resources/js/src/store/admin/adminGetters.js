@@ -3,8 +3,8 @@
   Description: Calendar Module Getters
   ----------------------------------------------------------------------------------------
 
-  
-  Author URL: https://www.dijitalreklam.org
+
+  Author URL: https://github.com/uyanik13
 ==========================================================================================*/
 
 

@@ -3,8 +3,8 @@
   Description: Here you can register components globally
   ----------------------------------------------------------------------------------------
 
-  
-  Author URL: https://www.dijitalreklam.org
+
+  Author URL: https://github.com/uyanik13
 ==========================================================================================*/
 
 

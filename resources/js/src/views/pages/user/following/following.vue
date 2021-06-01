@@ -3,8 +3,8 @@
   Description: Data List - List View
   ----------------------------------------------------------------------------------------
 
-  
-  Author URL: https://www.dijitalreklam.org
+
+  Author URL: https://github.com/uyanik13
 ========================================================================================== -->
 
 <template>

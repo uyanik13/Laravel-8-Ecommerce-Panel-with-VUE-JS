@@ -2,9 +2,9 @@
     File Name: agGridStyleOverride.scss
     Description: Override ag-grid table style/SASS vars
     ----------------------------------------------------------------------------------------
-    Item Name: Vuexy - Vuejs, HTML & Laravel Admin Dashboard Template
-    Author: Pixinvent
-    Author URL: http://www.themeforest.net/user/pixinvent
+    Item Name: Ogur Uyanik Admin Dashboard
+    Author: uyanik13
+    Author URL: https://github.com/uyanik13
 ==========================================================================================*/
 $icons-path: "~ag-grid-community/src/styles/ag-theme-material/icons/" !default;
 
@@ -132,7 +132,7 @@ $primary-color: #7367F0;
     }
 }
 
-// Can not use vuexy admin variables
+// Can not use Ogur Uyanik variables
 // agGrid vars and imported vars may conflict
 .theme-dark {
   .ag-grid-table {

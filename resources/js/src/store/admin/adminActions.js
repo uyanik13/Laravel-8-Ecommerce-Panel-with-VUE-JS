@@ -3,8 +3,8 @@
   Description: Calendar Module Actions
   ----------------------------------------------------------------------------------------
 
-  
-  Author URL: https://www.dijitalreklam.org
+
+  Author URL: https://github.com/uyanik13
 ==========================================================================================*/
 
 import axios from 'axios'

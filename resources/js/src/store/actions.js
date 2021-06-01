@@ -3,8 +3,8 @@
   Description: Vuex Store - actions
   ----------------------------------------------------------------------------------------
 
-  Author: Pixinvent
-  Author URL: https://www.dijitalreklam.org
+  Author: uyanik13
+  Author URL: https://github.com/uyanik13
 ==========================================================================================*/
 
 const actions = {

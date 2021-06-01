@@ -3,8 +3,8 @@
     Description: Tree demo
     ----------------------------------------------------------------------------------------
 
-    
-    Author URL: https://www.dijitalreklam.org
+
+    Author URL: https://github.com/uyanik13
 ========================================================================================== -->
 <template>
   <div id="page-tree-demo">
@@ -15,15 +15,15 @@
 </template>
 
 <script>
-import TreeDropdown from './TreeDropdown.vue'
-import TreeSearchTree from './TreeSearchTree.vue'
-import TreeAsyncTree from './TreeAsyncTree.vue'
+import TreeDropdown from "./TreeDropdown.vue";
+import TreeSearchTree from "./TreeSearchTree.vue";
+import TreeAsyncTree from "./TreeAsyncTree.vue";
 
 export default {
   components: {
     TreeDropdown,
     TreeSearchTree,
-    TreeAsyncTree
-  }
-}
+    TreeAsyncTree,
+  },
+};
 </script>

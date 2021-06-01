@@ -4,54 +4,53 @@
     Component Name: VxList
     ----------------------------------------------------------------------------------------
 
-      Author: Pixinvent
-    Author URL: https://www.dijitalreklam.org
+      Author: uyanik13
+    Author URL: https://github.com/uyanik13
 ========================================================================================== -->
 
 
 <template>
-    <ul class="list">
-        <li class="list__item" v-for="(item, index) in list" :key="index">
-            <feather-icon :icon="rtlSpecificIcon" class="w-5 h-5 mr-1"></feather-icon><span v-html="item"></span>
-        </li>
-    </ul>
+  <ul class="list">
+    <li class="list__item" v-for="(item, index) in list" :key="index">
+      <feather-icon :icon="rtlSpecificIcon" class="w-5 h-5 mr-1"></feather-icon
+      ><span v-html="item"></span>
+    </li>
+  </ul>
 </template>
 
 <script>
 export default {
-  name: 'vx-list',
+  name: "vx-list",
   props: {
     list: {
       type: Array,
-      required: true
+      required: true,
     },
     icon: {
       type: String,
-      default: 'ChevronsRightIcon'
-    }
+      default: "ChevronsRightIcon",
+    },
   },
   computed: {
-    rtlSpecificIcon () {
-      let i = this.icon
+    rtlSpecificIcon() {
+      let i = this.icon;
       if (this.$vs.rtl) {
-
-        if (i.includes('Left')) {
-          i = i.replace('Left', 'Right')
-        } else if (i.includes('Right')) {
-          i = i.replace('Right', 'Left')
+        if (i.includes("Left")) {
+          i = i.replace("Left", "Right");
+        } else if (i.includes("Right")) {
+          i = i.replace("Right", "Left");
         }
 
-
-        if (i.includes('Left')) {
-          i = i.replace('Left', 'Right')
-        } else if (i.includes('Right')) {
-          i = i.replace('Right', 'Left')
+        if (i.includes("Left")) {
+          i = i.replace("Left", "Right");
+        } else if (i.includes("Right")) {
+          i = i.replace("Right", "Left");
         }
       }
-      return i
-    }
-  }
-}
+      return i;
+    },
+  },
+};
 </script>
 
 <style lang="scss">

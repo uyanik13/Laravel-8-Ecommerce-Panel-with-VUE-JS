@@ -3,8 +3,8 @@
   Description: i18n configuration file. Imports i18n data.
   ----------------------------------------------------------------------------------------
 
-  Author: Pixinvent
-  Author URL: https://www.dijitalreklam.org
+  Author: uyanik13
+  Author URL: https://github.com/uyanik13
 ==========================================================================================*/
 
 

@@ -2,8 +2,8 @@
   File Name: main.js
   Description: main vue(js) file
   ----------------------------------------------------------------------------------------
-  Item Name: Vuesax Admin - VueJS Dashboard Admin Template
-  
+  Item Name: Ogur Uyanik Admin Dashboard
+
   Author URL: http://www.dijitalreklam.org
 ==========================================================================================*/
 
@@ -66,7 +66,7 @@ import store from './store/store'
 import i18n from './i18n/i18n'
 
 
-// Vuexy Admin Filters
+// Ogur Uyanik Filters
 import './filters/filters'
 
 

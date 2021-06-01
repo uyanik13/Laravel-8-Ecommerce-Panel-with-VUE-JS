@@ -3,8 +3,8 @@
   Description: Vuex Store - state
   ----------------------------------------------------------------------------------------
 
-  Author: Pixinvent
-  Author URL: https://www.dijitalreklam.org
+  Author: uyanik13
+  Author URL: https://github.com/uyanik13
 ==========================================================================================*/
 
 import navbarSearchAndPinList from '@/layouts/components/navbar/navbarSearchAndPinList'

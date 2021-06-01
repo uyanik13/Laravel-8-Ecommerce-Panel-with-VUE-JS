@@ -3,8 +3,8 @@
   Description: Context menu Demo
   ----------------------------------------------------------------------------------------
 
-  Author: Pixinvent
-  
+  Author: uyanik13
+
 ========================================================================================== -->
 
 <template>
@@ -15,13 +15,13 @@
 </template>
 
 <script>
-import ContextMenuSimple from './ContextMenuSimple.vue'
-import ContextMenuClickNotClose from './ContextMenuClickNotClose.vue'
+import ContextMenuSimple from "./ContextMenuSimple.vue";
+import ContextMenuClickNotClose from "./ContextMenuClickNotClose.vue";
 
-export default{
+export default {
   components: {
     ContextMenuSimple,
-    ContextMenuClickNotClose
-  }
-}
+    ContextMenuClickNotClose,
+  },
+};
 </script>

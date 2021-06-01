@@ -2,9 +2,9 @@
 File Name: RegisterJWT.vue
 Description: Register Page for JWT
 ----------------------------------------------------------------------------------------
-Item Name: Vuexy - Vuejs, HTML & Laravel Admin Dashboard Template
+Item Name: Ogur Uyanik Admin Dashboard
 
-Author URL: https://www.dijitalreklam.org
+Author URL: https://github.com/uyanik13
 ========================================================================================== -->
 
 

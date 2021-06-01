@@ -15,4 +15,4 @@ use App\Http\Controllers\Api\ApiPaymentController;
 
     Route::any('/{path}', function () {
         return view('layouts.vue');
-        })->where('path', '(.*)');
+     })->where('path', '(.*)');

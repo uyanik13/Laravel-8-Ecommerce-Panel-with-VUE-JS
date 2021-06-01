@@ -3,8 +3,8 @@
     Description: Autocomplete demo
     ----------------------------------------------------------------------------------------
 
-    Author: Pixinvent
-    
+    Author: uyanik13
+
 ========================================================================================== -->
 
 <template>
@@ -258,79 +258,83 @@ export default {
 </template>
 
 <script>
-import VueSimpleSuggest from 'vue-simple-suggest'
-import 'vue-simple-suggest/dist/styles.css'
+import VueSimpleSuggest from "vue-simple-suggest";
+import "vue-simple-suggest/dist/styles.css";
 
-import Prism from 'vue-prism-component'
+import Prism from "vue-prism-component";
 
 export default {
-  name: 'Autocomplete',
-  data () {
+  name: "Autocomplete",
+  data() {
     return {
-      chosen: '',
+      chosen: "",
       selected: null,
       model: null,
-      mode: 'input',
+      mode: "input",
       loading: false,
-      log: []
-    }
+      log: [],
+    };
   },
   methods: {
-    simpleSuggestionList () {
-      return [
-        'Vue.js',
-        'React.js',
-        'Angular.js'
-      ]
+    simpleSuggestionList() {
+      return ["Vue.js", "React.js", "Angular.js"];
     },
-    onSuggestSelect (suggest) {
-      this.selected = suggest
+    onSuggestSelect(suggest) {
+      this.selected = suggest;
     },
-    boldenSuggestion (scope) {
-      if (!scope) return scope
-      const { suggestion, query } = scope
-      const result = this.$refs.suggestComponent.displayProperty(suggestion)
-      if (!query) return result
-      const texts = query.split(/[\s-_/\\|.]/gm).filter(t => !!t) || ['']
-      return result.replace(new RegExp(`(.*?)(${  texts.join('|')  })(.*?)`, 'gi'), '$1<b>$2</b>$3')
+    boldenSuggestion(scope) {
+      if (!scope) return scope;
+      const { suggestion, query } = scope;
+      const result = this.$refs.suggestComponent.displayProperty(suggestion);
+      if (!query) return result;
+      const texts = query.split(/[\s-_/\\|.]/gm).filter((t) => !!t) || [""];
+      return result.replace(
+        new RegExp(`(.*?)(${texts.join("|")})(.*?)`, "gi"),
+        "$1<b>$2</b>$3"
+      );
     },
-    getList (inputValue) {
+    getList(inputValue) {
       return new Promise((resolve, reject) => {
-        const url = `https://en.wikipedia.org/w/api.php?origin=*&action=opensearch&namespace=*&search=${inputValue}&limit=10&namespace=0&format=json`
-        fetch(url).then(response => {
-          if (!response.ok) {
-            reject()
-          }
-          response.json().then(json => {
-            json.shift()
-            const result = []
-            const fields = ['text', 'description', 'link']
-            json.forEach((part, i) => {
-              part.forEach((el, j) => {
-                if (!result[j]) {
-                  result.push({
-                    id: j + 1
-                  })
-                }
-                result[j][fields[i]] = el
+        const url = `https://en.wikipedia.org/w/api.php?origin=*&action=opensearch&namespace=*&search=${inputValue}&limit=10&namespace=0&format=json`;
+        fetch(url)
+          .then((response) => {
+            if (!response.ok) {
+              reject();
+            }
+            response
+              .json()
+              .then((json) => {
+                json.shift();
+                const result = [];
+                const fields = ["text", "description", "link"];
+                json.forEach((part, i) => {
+                  part.forEach((el, j) => {
+                    if (!result[j]) {
+                      result.push({
+                        id: j + 1,
+                      });
+                    }
+                    result[j][fields[i]] = el;
+                  });
+                });
+                resolve(result);
               })
-            })
-            resolve(result)
-          }).catch(e => {
-            reject(e)
+              .catch((e) => {
+                reject(e);
+              });
           })
-        }).catch(error => {
-          this.loading = false
-          reject(error)
-        })
-      })
-    }
+          .catch((error) => {
+            this.loading = false;
+            reject(error);
+          });
+      });
+    },
   },
   components: {
     VueSimpleSuggest,
-    Prism
-  }
-}
+    Prism,
+  },
+};
 </script>
 
 <style lang="scss">

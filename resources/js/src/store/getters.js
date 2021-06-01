@@ -3,8 +3,8 @@
   Description: Vuex Store - getters
   ----------------------------------------------------------------------------------------
 
-  Author: Pixinvent
-  
+  Author: uyanik13
+
 ==========================================================================================*/
 
 // added so later we can keep breakpoint in sync automatically using this config file

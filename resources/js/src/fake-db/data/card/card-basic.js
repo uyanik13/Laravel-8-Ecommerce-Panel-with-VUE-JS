@@ -1,24 +1,24 @@
 import mock from '@/fake-db/mock.js'
 
 const data = {
-  pixinvent_product_1: {
+  uyanik13_product_1: {
     img: require('@assets/images/pages/content-img-1.jpg'),
-    title: 'Vuexy Admin',
-    subtitle: 'By Pixinvent Creative Studio',
+    title: 'Ogur Uyanik',
+    subtitle: 'By uyanik13 Creative Studio',
     subtitle_2: 'Elite Author'
   },
-  pixinvent_product_sales_1: {
+  uyanik13_product_sales_1: {
     img: require('@assets/images/pages/content-img-2.jpg'),
-    title: 'Vuexy Admin',
-    subtitle: 'By Pixinvent Creative Studio',
+    title: 'Ogur Uyanik',
+    subtitle: 'By uyanik13 Creative Studio',
     footer_text_left_value: '$ 4785.78',
     footer_text_left_label: 'Income',
     footer_text_right_value: '12 June 2019',
     footer_text_right_label: 'Release Date'
   },
-  pixinvent_product_goal_1: {
+  uyanik13_product_goal_1: {
     img: require('@assets/images/pages/content-img-3.jpg'),
-    title: 'Vuexy Admin',
+    title: 'Ogur Uyanik',
     progress_done_per: 75,
     current_progress: '$ 5975',
     progress_goal: '$ 8000',
@@ -117,8 +117,8 @@ const data = {
     }
   ],
   item_reviews_12: {
-    title: 'Vuexy Admin',
-    subtitle: 'by Pixinvent Creative Studio',
+    title: 'Ogur Uyanik',
+    subtitle: 'by uyanik13 Creative Studio',
     img: require('@assets/images/pages/content-img-4.jpg'),
     meta: {
       likes: 368,
@@ -143,16 +143,16 @@ const data = {
   }
 }
 
-mock.onGet('/api/users/pixinvent/product/1').reply(() => {
-  return [200, data.pixinvent_product_1]
+mock.onGet('/api/users/uyanik13/product/1').reply(() => {
+  return [200, data.uyanik13_product_1]
 })
 
-mock.onGet('/api/users/pixinvent/product/sales/1').reply(() => {
-  return [200, data.pixinvent_product_sales_1]
+mock.onGet('/api/users/uyanik13/product/sales/1').reply(() => {
+  return [200, data.uyanik13_product_sales_1]
 })
 
-mock.onGet('/api/users/pixinvent/product/goals/1').reply(() => {
-  return [200, data.pixinvent_product_goal_1]
+mock.onGet('/api/users/uyanik13/product/goals/1').reply(() => {
+  return [200, data.uyanik13_product_goal_1]
 })
 
 mock.onGet('/api/users/89').reply(() => {

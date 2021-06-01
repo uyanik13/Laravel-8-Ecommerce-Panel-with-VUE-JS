@@ -4,12 +4,19 @@
   Component Name: BuyNow
   ----------------------------------------------------------------------------------------
 
-  Author: Pixinvent
-  
+  Author: uyanik13
+
 ========================================================================================== -->
 
 <template functional>
-  <vs-button color="danger" type="filled" class="buy-now" target :href="{url: 'https://1.envato.market/vuexy_admin'}">Buy Now</vs-button>
+  <vs-button
+    color="danger"
+    type="filled"
+    class="buy-now"
+    target
+    :href="{ url: 'https://1.envato.market/vuexy_admin' }"
+    >Buy Now</vs-button
+  >
 </template>
 
 <style lang="scss">
@@ -20,12 +27,10 @@
   z-index: 51000;
   box-shadow: 0 1px 20px 1px rgb(251, 67, 79);
 }
-
 </style>
 <script>
 export default {
-  name: 'buy-now'
-}
-
+  name: "buy-now",
+};
 </script>
 
